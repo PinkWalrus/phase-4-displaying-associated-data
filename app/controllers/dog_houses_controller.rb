@@ -3,7 +3,7 @@ class DogHousesController < ApplicationController
 
   def show
     dog_house = DogHouse.find(params[:id])
-    render json: dog_house
+    render json: dog_house, include: :reviews
   end
 
   private
@@ -13,3 +13,7 @@ class DogHousesController < ApplicationController
   end
 
 end
+
+
+# have just one request that returns the data about the dog house
+# and return a list of all its reviews
